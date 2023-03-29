@@ -1,0 +1,35 @@
+﻿@*@model List<City>
+
+@{
+    ViewData["Title"] = "CitiesByRegion";
+}
+
+<h1>@ViewBag.RegionName</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>City ID</th>
+            <th>City Name</th>
+            <th>Plate Code</th>
+            <th>Region ID</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var city in Model)
+        {
+            <tr>
+                <td>@city.CityID</td>
+                <td>@city.CityName</td>
+                <td>@city.PlateCode</td>
+                <td>@city.RegionID</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}*@

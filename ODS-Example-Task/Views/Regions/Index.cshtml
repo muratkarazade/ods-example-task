@@ -1,0 +1,35 @@
+﻿@model List<Region>
+@{
+    ViewData["Title"] = "Index";
+}
+<h2>Regions</h2>
+
+<p>
+    <a href="@Url.Action("Create", "Regions")" class="btn btn-primary">Bölge Ekle</a>    
+</p>
+
+<p>
+    <a href="@Url.Action("GetCityCountByRegion", "Regions")" class="btn btn-primary">Bölgeye Göre Şehir Sayılarını Getir</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Region ID</th>
+            <th>Region Name</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.RegionID</td>
+                <td>@item.RegionName</td>
+                <td>
+                    <a href="@Url.Action("Delete", "Regions", new { id = item.RegionID })" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

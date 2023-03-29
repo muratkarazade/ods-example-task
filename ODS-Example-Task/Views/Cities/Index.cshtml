@@ -1,0 +1,41 @@
+﻿@model List<City>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1> Şehirler</h1>
+
+<p>
+    <a href="@Url.Action("Create", "Cities")" class="btn btn-primary">Şehir Ekle</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               Şehir No
+            </th>
+            <th>
+                Şehir Adı
+            </th>            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.CityID
+                </td>
+                <td>
+                    @item.CityName
+                </td>
+
+                <td>
+                    <a href="@Url.Action("Delete", "Cities", new { id =item.CityID })" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

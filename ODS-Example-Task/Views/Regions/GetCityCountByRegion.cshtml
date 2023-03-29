@@ -1,0 +1,26 @@
+﻿@using ODS_Example_Task.Models;
+@model List<CityRegionCount>
+@{
+    ViewData["Title"] = "GetRegionCount";
+}
+<h1>City Counts By Region</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Bölge ID</th>
+            <th>Bölge Adı</th>
+            <th>Şehir Sayısı</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.RegionID</td>
+                <td>@item.RegionName</td>
+                <td>@item.CityCount</td>
+            </tr>
+        }
+    </tbody>
+</table>
